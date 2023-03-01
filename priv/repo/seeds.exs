@@ -9,3 +9,30 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+alias Pento.Catalog
+
+products = [
+  %{
+    name: "Chess",
+    description: "strategy game",
+    sku: 5_678_910,
+    unit_price: 10.00
+  },
+  %{
+    name: "tic tac toe",
+    description: "game of Xs and Os",
+    sku: 11_121_314,
+    unit_price: 3.00
+  },
+  %{
+    name: "table tennis",
+    description: "bat the ball back and forth",
+    sku: 15_222_324,
+    unit_price: 12.00
+  }
+]
+
+Enum.each(products, fn product ->
+  Catalog.create_product(product)
+end)
